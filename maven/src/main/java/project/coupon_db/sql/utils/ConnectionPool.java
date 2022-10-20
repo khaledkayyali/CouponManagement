@@ -20,7 +20,7 @@ public class ConnectionPool {
     private ConnectionPool() {
         try {
             Class.forName(JDBC_DRIVER);
-            for (int i = 100; i > 0; i--) {
+            for (int i = 10; i > 0; i--) {
                 connections.add(DriverManager.getConnection(URL, USER, PASSWORD));
             }
         } catch (SQLException | ClassNotFoundException e) {

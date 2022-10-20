@@ -93,7 +93,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         ArrayList<Company> list = new ArrayList<>();
         
         connection = pool.getConnection();
-        String query = "SELECT * FROM COMPANIES ";
+        String query = "SELECT * FROM `COMPANIES` ";
         
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         ResultSet resultSet = preparedStatement.executeQuery(query);

@@ -17,12 +17,16 @@ public class Test {
         LoginManager loginManager = LoginManager.getInstance();
         AdminFacade adminUser = (AdminFacade) loginManager.login("admin@admin.com", "admin", ClientType.ADMINISTRATOR);
 
-        adminUser.addCompany(new Company(1, "Intel", "intel@hotmail.com", "intel"));
+        Company intel = new Company(1, "Intel", "intel@hotmail.com", "intel");
+        adminUser.addCompany(intel);
+        //adminUser.addCompany(new Company(1, "Intel", "intel@hotmail.com", "intel"));
         adminUser.addCompany(new Company(2, "Microsoft", "microsoft@hotmail.com", "microsoft"));
         System.out.println(adminUser.getAllCompanies());
+        System.out.println(adminUser.getOneCompany(5));
 
 
         Company company = new Company(3, "Google", "google@gmail.com", "google");
+        //adminUser.addCompany(company);
         CompanyFacade companyUser = (CompanyFacade) loginManager.login(company.getCompanyEmail(), company.getCompanyPassword(), ClientType.COMPANY);
         // companyUser.addCoupon(new Coupon(001,3, Category.getCategory(1),"googleCoupon","DiscountCoupon",1/2/2022,30/11/2022,3,100,"@@@"));
         companyUser.getCompanyDetails();
